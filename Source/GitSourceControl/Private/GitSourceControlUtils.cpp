@@ -86,7 +86,7 @@ FString ChangeRepositoryRootIfSubmodule(const TArray<FString>& AbsoluteFilePaths
 		FString CandidateRepoRoot = PluginsRoot + PluginPart;
 
 		FString IsItUsingGitPath = CandidateRepoRoot + "/.git";
-		if (FPaths::FileExists(IsItUsingGitPath))
+		if (FPaths::FileExists(IsItUsingGitPath) || FPaths::DirectoryExists(IsItUsingGitPath))
 		{
 			Ret = CandidateRepoRoot;
 		}
